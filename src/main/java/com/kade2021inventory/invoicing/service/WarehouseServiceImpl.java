@@ -1,6 +1,6 @@
 package com.kade2021inventory.invoicing.service;
 
-import com.kade2021inventory.invoicing.dao.WarehouseMapper;
+import com.kade2021inventory.invoicing.mapper.WarehouseMapper;
 import com.kade2021inventory.invoicing.pojo.Warehouse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

@@ -1,4 +1,4 @@
-package com.kade2021inventory.invoicing.dao;
+package com.kade2021inventory.invoicing.mapper;
 import com.kade2021inventory.invoicing.pojo.Warehouse;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
