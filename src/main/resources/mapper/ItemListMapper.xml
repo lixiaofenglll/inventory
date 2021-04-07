@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.kade2021inventory.invoicing.mapper.ItemListMapper">
+        <select id="selectAll" parameterType="map" resultType="itemList">
+            select * from itemlist limit ${page},${limit}
+        </select>
+        <select id="selectBy" parameterType="map" resultType="itemList">
+            select * from itemlist
+            <where>
+             <if test="itemId!=null and itemId!=''">
+                itemId like CONCAT("%",#{itemId},"%")
+             </if>
+             <if test="product!=null and product!=''">
+              and  product like CONCAT("%",#{product},"%")
+             </if>
+                <if test="specificationInfo!=null and specificationInfo!=''">
+                    and  specificationInfo like CONCAT("%",#{specificationInfo},"%")
+                </if>
+                <if test="queryKeywords!=null and queryKeywords!=''">
+                    and  queryKeywords like CONCAT("%",#{queryKeywords},"%")
+                </if>
+                <if test="unit!=null and unit!=''">
+                    and  unit like CONCAT("%",#{unit},"%")
+                </if>
+                <if test="itemType!=null and itemType!=''">
+                    and  itemType in(
+                    <foreach collection="arr" item="ite" separator=",">
+                        #{ite}
+                    </foreach>
+                    )
+                </if>
+
+            </where>
+            limit ${page},${limit}
+        </select>
+    <insert id="addItem" parameterType="itemList">
+        insert into itemlist value(null,#{material},#{itemId},#{product},#{specificationInfo},#{unit},#{queryKeywords},#{supplierCode},#{supplierName},#{productionProcessName},#{productImage},#{itemType},#{hirerarchicalCombinationName},#{fileManagement},#{remarks})
+    </insert>
+    <update id="update" parameterType="itemList">
+            update itemlist
+            <set>
+                <if test="material!=null and material!=''">
+                    material=#{material}
+                </if>
+                <if test="itemId!='' and itemId!=null">
+                    ,itemId=#{itemId}
+                </if>
+                <if test="product!='' and product!=null">
+                    ,product=#{product}
+                </if>
+                <if test="specificationInfo!='' and specificationInfo!=null">
+                    ,specificationInfo=#{specificationInfo}
+                </if>
+                <if test="unit!='' and unit!=null">
+                    ,unit=#{unit}
+                </if>
+                <if test="queryKeywords!='' and queryKeywords!=null">
+                    ,queryKeywords=#{queryKeywords}
+                </if>
+                <if test="supplierCode!='' and supplierCode!=null">
+                    ,supplierCode=#{supplierCode}
+                </if>
+                <if test="supplierName!='' and supplierName!=null">
+                    ,supplierName=#{supplierName}
+                </if>
+                <if test="productionProcessName!='' and productionProcessName!=null">
+                    ,productionProcessName=#{productionProcessName}
+                </if>
+                <if test="productImage!='' and productImage!=null">
+                    ,productImage=#{productImage}
+                </if>
+                <if test="itemType!='' and itemType!=null">
+                    ,itemType=#{itemType}
+                </if>
+                <if test="hierarchicalCombinationName!='' and hierarchicalCombinationName!=null">
+                    ,hierarchicalCombinationName=#{hierarchicalCombinationName}
+                </if>
+                <if test="fileManagement!='' and fileManagement!=null">
+                    ,fileManagement=#{fileManagement}
+                </if>
+                <if test="remarks!='' and remarks!=null">
+                    ,remarks=#{remarks}
+                </if>
+            </set>
+            where id=#{id}
+    </update>
+    <delete id="delete" parameterType="int">
+        delete from itemlist where id=#{id}
+    </delete>
+    <select id="pageCount" resultType="int">
+        select count(*) from itemlist
+    </select>
+    <select id="pageCountBy" parameterType="map" resultType="int">
+        select count(*) from itemlist
+        <where>
+            <if test="itemId!=null and itemId!=''">
+                itemId like CONCAT("%",#{itemId},"%")
+            </if>
+            <if test="product!=null and product!=''">
+                and  product like CONCAT("%",#{product},"%")
+            </if>
+            <if test="specificationInfo!=null and specificationInfo!=''">
+                and  specificationInfo like CONCAT("%",#{specificationInfo},"%")
+            </if>
+            <if test="queryKeywords!=null and queryKeywords!=''">
+                and  queryKeywords like CONCAT("%",#{queryKeywords},"%")
+            </if>
+            <if test="unit!=null and unit!=''">
+                and  unit like CONCAT("%",#{unit},"%")
+            </if>
+            <if test="itemType!=null and itemType!=''">
+                and  itemType in(
+                <foreach collection="arr" item="ite" separator=",">
+                    #{ite}
+                </foreach>
+                )
+            </if>
+
+        </where>
+    </select>
+</mapper>
