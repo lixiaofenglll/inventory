@@ -1,9 +1,11 @@
 package com.kade2021inventory.system.mapper;
 
 import com.kade2021inventory.system.pojo.Menu;
+import org.apache.ibatis.annotations.Mapper;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
-import java.util.Map;
+
 
 /**
  * @Auther: lixiaofeng
@@ -11,7 +13,12 @@ import java.util.Map;
  * @Description:
  * @version：1.0
  **/
+@Mapper
+@Repository
 public interface MenuMapper {
-    List<Menu> select(Map<String,Object>m);
+    List<Menu> selectAll();
+    int addMenu(Menu m);
+    int update(Menu m);
+    int delete(int id);
 
 }
