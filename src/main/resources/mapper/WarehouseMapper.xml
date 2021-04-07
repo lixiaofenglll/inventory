@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kade2021inventory.invoicing.dao.WarehouseMapper">
+   <!--添加仓库列表-->
+    <insert id="insertWarehouse">
+    insert into warehouse values (#{id},#{warehouseName},#{warehouseType},#{flowName},#{OutsourcingunitName},1);
+    </insert>
+    <select id="EXCEPTIONById" resultType="int">
+        select COUNT(id) from warehouse where id=#{id};
+    </select>
+    <select id="repetitionName" resultType="int">
+        select count(warehouseName) from warehouse where warehouseName=#{warehouseName}
+    </select>
+    <!--查询仓库列表-->
+    <select id="ListWarehouse" resultType="Warehouse" >
+        select * from warehouse where state=1
+            <if test="id !=null and id!='' ">
+                and id=#{id}
+            </if>
+            <if test="warehouseName !=null and warehouseName !='' ">
+                and warehouseName like  concat('%',#{warehouseName},'%')
+            </if>
+            <if test="warehouseType !=0 and warehouseType !='' ">
+                and (warehouseType=#{warehouseType} or warehouseType=#{warehouseType} or warehouseType=#{warehouseType})
+            </if>
+
+    </select>
+    <!--删除-->
+    <delete id="deleteObjects">
+        delete from warehouse
+        <choose>
+            <when test="id!=null and id.length>0">
+                <where>
+                    <foreach collection="id" item="id" separator="or">
+                        id=#{id}
+                    </foreach>
+                </where>
+            </when>
+            <otherwise>
+                where 1=2
+            </otherwise>
+        </choose>
+    </delete>
+</mapper>
