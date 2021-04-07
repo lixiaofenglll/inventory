@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <!-- appender是configuration的子节点，是负责写日志的组件。 -->
+    <!-- ConsoleAppender：把日志输出到控制台 -->
+    <appender name="consoleLog" class="ch.qos.logback.core.ConsoleAppender">
+        <layout>
+            <pattern>[%p] %d - %msg%n</pattern>
+        </layout>
+    </appender>
+    <!--输出日志到文件-->
+    <appender name="fileLog"
+              class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <encoder>
+            <pattern>[%p] %d - %msg%n</pattern>
+        </encoder>
+        <rollingPolicy
+                class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>
+                G:/logs2021/%d.log
+            </fileNamePattern>
+        </rollingPolicy>
+    </appender>
+    <root level="info">
+        <appender-ref ref="consoleLog"></appender-ref>
+        <appender-ref ref="fileLog"></appender-ref>
+    </root>
+<!--    <logger name="cn.service.UserService" level="DEBUG">-->
+<!--        <appender-ref ref="fileLog"/>-->
+<!--    </logger>-->
+</configuration>
