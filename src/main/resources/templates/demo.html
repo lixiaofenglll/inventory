@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Title</title>
+    <link href="js/bootstrap/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="row" style="height: 100%">
+<div class="col-md-2">
+    <ul class="list-group ">
+        <li class="list-group-item active" >a</li>
+        <li class="list-group-item">b</li>
+        <li class="list-group-item">c</li>
+    </ul>
+
+</div>
+<div class="col-md-10 table-responsive" style="width: 500px">
+    <table id="testTable" class="table table-bordered table-hover table-condensed"></table>
+    <!-- 16:9 aspect ratio -->
+    <!--<div class="embed-responsive embed-responsive-16by9">
+        <iframe class="embed-responsive-item" src="http://www.baidu.com"></iframe>
+    </div>-->
+</div>
+</div>
+</body>
+<script src="js/jquery/jquery.min.js"></script>
+
+<script src="js/bootstrap/bootstrap.min.js"></script>
+
+<script src="js/tablemaker-core/tablemaker-core-static.js"></script>
+
+<script src="js/tablemaker-core/tablemaker-core-runtime.js"></script>
+
+<script src="js/tablemaker-builder/tablemaker-builder-runtime.js"></script>
+
+<script src="js/tablemaker-builder/tablemaker-builder-static.js"></script>
+
+<script src="js/tablemaker-service/tablemaker-service-runtime.js"></script>
+
+
+
+
+<script>
+    registeConfigByJson("/js/config/demoConfig.json")
+    registeListTablemakerConfig()
+    tablemakerBuild("bug_detail","#testTable","cover","defualt")
+</script>
+
+</html>
