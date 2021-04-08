@@ -8,6 +8,7 @@
         <version>2.4.4</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
+<<<<<<< HEAD
     <groupId>cn.kgc</groupId>
     <artifactId>jxc</artifactId>
     <version>0.0.1-SNAPSHOT</version>
@@ -15,6 +16,16 @@
     <description>Demo project for Spring Boot</description>
     <properties>
         <java.version>1.8</java.version>
+=======
+    <groupId>com.kade2021</groupId>
+    <artifactId>project</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>project</name>
+    <description>Demo project for Spring Boot</description>
+    <properties>
+        <java.version>1.8</java.version>
+        <thymeleaf.version>3.0.11.RELEASE</thymeleaf.version>
+>>>>>>> 09c5220c9f5c4e90a66879ed24464013fbcde834
     </properties>
     <dependencies>
         <dependency>
@@ -27,6 +38,13 @@
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
+<<<<<<< HEAD
+=======
+            <artifactId>spring-boot-starter-jdbc</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+>>>>>>> 09c5220c9f5c4e90a66879ed24464013fbcde834
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
         <dependency>
@@ -39,12 +57,38 @@
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <scope>runtime</scope>
+<<<<<<< HEAD
+=======
+
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.2</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.mybatis.spring.boot</groupId>
+            <artifactId>mybatis-spring-boot-starter</artifactId>
+            <version>2.1.4</version>
+>>>>>>> 09c5220c9f5c4e90a66879ed24464013fbcde834
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+<<<<<<< HEAD
+=======
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.2.47</version>
+        </dependency>
+
+>>>>>>> 09c5220c9f5c4e90a66879ed24464013fbcde834
     </dependencies>
 
     <build>
@@ -54,6 +98,18 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
         </plugins>
+<<<<<<< HEAD
+=======
+        <resources>
+            <resource>
+                <directory>src/main/java</directory>
+                <includes>
+                    <include>**/*.xml</include>
+                </includes>
+            </resource>
+        </resources>
+
+>>>>>>> 09c5220c9f5c4e90a66879ed24464013fbcde834
     </build>
 
 </project>

@@ -1,0 +1,14 @@
+[
+  {
+    "title": "测试列表",
+    "name": "bug_detail",
+    "local": "js/config/testListConfig.json",
+    "method": "json"
+  },
+  {
+    "title": "测试列表",
+    "name": "bug_project",
+    "local": "js/config/testListConfig2.json",
+    "method": "json"
+  }
+]
