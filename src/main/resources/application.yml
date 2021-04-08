@@ -6,4 +6,4 @@ spring:
     password: "0109"
 mybatis:
   mapper-locations: classpath:mapper/*Mapper.xml
-  type-aliases-package: com.kade2021inventorylingduanhui.inventorytest.pojo
+  type-aliases-package: com.kade2021inventory.*.pojo
