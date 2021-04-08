@@ -1,6 +1,6 @@
 package com.kade2021inventory.invoicing.service;
 
-import com.kade2021inventory.invoicing.Mapper.BtypeMapper;
+import com.kade2021inventory.invoicing.mapper.BtypeMapper;
 import com.kade2021inventory.invoicing.pojo.InvoicingBtype;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

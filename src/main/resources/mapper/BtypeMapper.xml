@@ -2,7 +2,7 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.kade2021inventory.invoicing.Mapper.BtypeMapper">
+<mapper namespace="com.kade2021inventory.invoicing.mapper.BtypeMapper">
         <select id="queryList" resultType="invoicingBtype">
             select * from invoicing_btype
             <where>
