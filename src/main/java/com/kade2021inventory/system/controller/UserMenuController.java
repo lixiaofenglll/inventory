@@ -1,5 +1,9 @@
 package com.kade2021inventory.system.controller;
 
+import com.kade2021inventory.system.pojo.User;
+import com.kade2021inventory.system.service.UserRoleService;
+import com.kade2021inventory.utils.RedisUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -13,8 +17,14 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/UserMenu")
 public class UserMenuController {
+    @Autowired
+    RedisUtils redisUtils;
+    @Autowired
+    UserRoleService userRoleService;
      @PostMapping("/getMenu")
     public String getMenu(){
-        return "";
+         User user = (User)redisUtils.getByKey("user");
+
+         return "";
      }
 }
