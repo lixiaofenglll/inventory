@@ -1,0 +1,11 @@
+server:
+  port: 8080
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    password: root
+    url: jdbc:mysql://localhost:3306/kade2021inventory
+mybatis:
+  type-aliases-package: com.kade2021inventory.*.pojo
+  mapper-locations: classpath:mapper/*Mapper.xml
