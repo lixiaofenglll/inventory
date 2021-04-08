@@ -1,4 +1,4 @@
-package com.kade2021inventory.util;
+package com.kade2021inventory.utils;
 import java.util.Collection;
 import java.util.Map;
 

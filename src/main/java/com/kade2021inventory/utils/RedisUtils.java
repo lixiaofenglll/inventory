@@ -1,9 +1,10 @@
-package com.kade2021inventory.util;
+package com.kade2021inventory.utils;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
 import java.util.concurrent.TimeUnit;
+
 @Component
 public class RedisUtils {
     @Resource

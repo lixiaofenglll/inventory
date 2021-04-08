@@ -3,9 +3,9 @@ package com.kade2021inventory.invoicing.controller;
 import com.kade2021inventory.invoicing.dto.ResultDto;
 import com.kade2021inventory.invoicing.pojo.Project;
 import com.kade2021inventory.invoicing.service.ProjectService;
-import com.kade2021inventory.util.RedisUtils;
-import com.kade2021inventory.util.ResultUtil;
-import com.kade2021inventory.util.SysCode;
+import com.kade2021inventory.utils.RedisUtils;
+import com.kade2021inventory.utils.ResultUtil;
+import com.kade2021inventory.utils.SysCode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -45,7 +45,7 @@ return "product_edit";
     @ResponseBody
     public ResultDto deleteById(@PathVariable Integer id) {
         if (projectService.delete(id) <= 0) {
-            return ResultUtil.returnSuccess(SysCode.SYS_PROJECT_DELETE_ERROR);
+            return ResultUtil.returnFail(11100,"213123");
         }
         return ResultUtil.returnSuccess();
     }

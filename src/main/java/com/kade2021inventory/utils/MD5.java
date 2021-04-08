@@ -1,4 +1,4 @@
-package com.kade2021inventory.util;
+package com.kade2021inventory.utils;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
