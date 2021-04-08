@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kade2021inventory.invoicing.mapper.ProjectMapper">
+ <!--  <resultMap id="ProjectList" type="Project">
+       <result column="projectId" property="projectId"/>
+       <result column="projectName" property="projectName"/>
+       <result column="projectType" property="projectType"/>
+       <result column="status" property="status"/>
+   </resultMap>-->
+    <select id="queryListProject" resultType="Project">
+        select * from project
+        <if test="page!= null and limit !=null">
+            limit ${page},${limit}
+        </if>
+    </select>
+    <insert id="addProject" parameterType="Project">
+        insert  into project values (#{projectId},#{projectName},#{projectType},#{status})
+    </insert>
+    <update id="updateProject">
+        update project set projectName = #{projectName},projectType=#{projectType},status=#{status} where projectId = #{projectId}
+    </update>
+
+    <delete id="delete" parameterType="int">
+        delete from project where projectId= #{ProjectId}
+    </delete>
+</mapper>
