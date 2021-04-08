@@ -1,9 +1,41 @@
 spring:
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://127.0.0.1:3306/inventory?useSSL=true
+    url: jdbc:mysql://127.0.0.1:3306/inventory?useSSL=true&charsetEncoding=utf-8
     username: root
-    password: "0109"
+    password: 12345
+#  thymeleaf:
+#    mode: HTML
+#    encoding: utf-8
+#    cache: false
+#    prefix: classpath:/templates/
+      #druid������
+  druid:
+        initialSize: 5
+        minIdle: 5
+        maxActive: 188
+        maxWait: 60000
+        timeBetweenEvictionRunsMillis: 60000
+        minEvictableIdleTimeMillis: 300000
+        validationQuery: SELECT 1 FROM DUAL
+        testWhileIdle: true
+        testOnBorrow: false
+        testOnReturn: false
+
+        poolPreparedStatements: true
+
+        filters: stat,wall,log4j,config
+
+        maxPoolPreparedStatementPerConnectionSize: 20
+
+        useGlobalDataSourceStat: true
+
+        connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+  redis:
+    host: localhost
+    port: 6379
+    database: 0
+    password: 12345
 mybatis:
-  mapper-locations: classpath:mapper/*Mapper.xml
+  mapper-locations: classpath:mapper/*.xml
   type-aliases-package: com.kade2021inventory.*.pojo

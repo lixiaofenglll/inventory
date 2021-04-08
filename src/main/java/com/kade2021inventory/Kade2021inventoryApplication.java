@@ -6,13 +6,13 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class kade2021inventoryApplication {
+public class Kade2021inventoryApplication {
     @Autowired
     OmniMapper omniMapper;
 
     public static void main(String[] args) {
 
-        SpringApplication.run(kade2021inventoryApplication.class, args);
+        SpringApplication.run(Kade2021inventoryApplication.class, args);
        /*OmniMapper o = run.getBean("omniMapper",OmniMapper.class);
         HashMap<String ,Object> hm = new HashMap<>();
         hm.put("_table","bug_detail,bug_project");

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.kade2021inventory.system.mapper.MenuMapper">
+        <select id="selectAll" resultType="Menu">
+            select * from menu
+        </select>
+        <insert id="addMenu" parameterType="Menu">
+            insert into menu value(null,#{menuName},#{menuUrl},#{status})
+        </insert>
+        <update id="update" parameterType="Menu">
+            update menu
+            <set>
+                <if test="menuNmae !=null and menuName!=''">
+                    menuNmae=#{menuName}
+                </if>
+                <if test="menuUrl !=null and menuUrl!=''">
+                    menuUrl=#{menuUrl}
+                </if>
+                <if test="status !=null and status!=''">
+                    status=#{status}
+                </if>
+            </set>
+            where id=#{id}
+        </update>
+    <delete id="delete" parameterType="int">
+        delete from menu where id=#{id}
+    </delete>
+</mapper>

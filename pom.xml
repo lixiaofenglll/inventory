@@ -8,24 +8,14 @@
         <version>2.4.4</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-<<<<<<< HEAD
-    <groupId>cn.kgc</groupId>
-    <artifactId>jxc</artifactId>
+    <groupId>com.kade2021Inventory</groupId>
+    <artifactId>kade2021Inventory</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>jxc</name>
-    <description>Demo project for Spring Boot</description>
-    <properties>
-        <java.version>1.8</java.version>
-=======
-    <groupId>com.kade2021</groupId>
-    <artifactId>project</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-    <name>project</name>
+    <name>kade2021Inventory</name>
     <description>Demo project for Spring Boot</description>
     <properties>
         <java.version>1.8</java.version>
         <thymeleaf.version>3.0.11.RELEASE</thymeleaf.version>
->>>>>>> 09c5220c9f5c4e90a66879ed24464013fbcde834
     </properties>
     <dependencies>
         <dependency>
@@ -38,13 +28,6 @@
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
-<<<<<<< HEAD
-=======
-            <artifactId>spring-boot-starter-jdbc</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
->>>>>>> 09c5220c9f5c4e90a66879ed24464013fbcde834
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
         <dependency>
@@ -52,17 +35,64 @@
             <artifactId>mybatis-spring-boot-starter</artifactId>
             <version>2.1.4</version>
         </dependency>
-
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <scope>runtime</scope>
-<<<<<<< HEAD
-=======
-
+            <version>5.1.8</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
         </dependency>
 
+        <!--java mail依赖-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-mail</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
+        </dependency>
+
+        <!--短信依赖-->
+        <dependency>
+            <groupId>com.cloopen</groupId>
+            <artifactId>java-sms-sdk</artifactId>
+            <version>1.0.3</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-thymeleaf</artifactId>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>5.1.8</version>
+        </dependency>
         <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.10</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-thymeleaf</artifactId>
+        </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
@@ -70,36 +100,29 @@
             <scope>provided</scope>
         </dependency>
         <dependency>
-            <groupId>org.mybatis.spring.boot</groupId>
-            <artifactId>mybatis-spring-boot-starter</artifactId>
-            <version>2.1.4</version>
->>>>>>> 09c5220c9f5c4e90a66879ed24464013fbcde834
-        </dependency>
-        <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
-<<<<<<< HEAD
-=======
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
             <version>1.2.47</version>
         </dependency>
-
->>>>>>> 09c5220c9f5c4e90a66879ed24464013fbcde834
     </dependencies>
-
     <build>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+
+                <configuration>
+                    <!-- 设置为true，让热部署devtools生效 -->
+                    <fork>true</fork>
+                    <addResources>true</addResources>
+                </configuration>
             </plugin>
         </plugins>
-<<<<<<< HEAD
-=======
         <resources>
             <resource>
                 <directory>src/main/java</directory>
@@ -108,8 +131,5 @@
                 </includes>
             </resource>
         </resources>
-
->>>>>>> 09c5220c9f5c4e90a66879ed24464013fbcde834
     </build>
-
 </project>
