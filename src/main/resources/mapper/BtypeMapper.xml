@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kade2021inventory.invoicing.Mapper.BtypeMapper">
+        <select id="queryList" resultType="invoicingBtype">
+            select * from invoicing_btype
+            <where>
+                <if test="id!=null and id !=''">
+                    and id like concat('%',#{id},'%')
+                </if>
+                <if test="btypeName!=null and btypeName!=''">
+                    and btypeName like concat('%',#{btypeName},'%')
+                </if>
+                <if test="btypeEmail!=null and btypeEmail!=''">
+                    and btypeEmail like concat('%',#{btypeEmail},'%')
+                </if>
+                <if test="btypeAddress!=null and btypeAddress!=''">
+                    and btypeAddress like concat('%',#{btypeAddress},'%')
+                </if>
+                <if test="btypeLinkman!=null and btypeLinkman!=''">
+                    and btypeLinkman like concat('%',#{btypeLinkman},'%')
+                </if>
+                <if test="btypeCell!=null and btypeCell!=''">
+                    and btypeCell like concat('%',#{btypeCell},'%')
+                </if>
+                <if test="btypePhone!=null and btypePhone!=''">
+                    and btypePhone like concat('%',#{btypePhone},'%')
+                </if>
+                <if test="btypeClassification!=null and btypeClassification!=''">
+                    and btypeClassification like concat('%',#{btypeClassification},'%')
+                </if>
+                <if test="btypeClerk!=null and btypeClerk!=''">
+                    and btypeClerk like concat('%',#{btypeClerk},'%')
+                </if>
+
+            </where>
+            limit ${page},${limit}
+        </select>
+
+        <select id="count" resultType="int">
+            select  count(*) from  invoicing_btype
+        </select>
+
+
+
+    <update id="updateBtypeId" parameterType="InvoicingBtype" >
+        update  invoicing_btype
+        <set>
+            <if test="btypeName!=null and btypeName!= ''">
+                btypeName=#{btypeName}
+            </if>
+            <if test="btypeEmail!=null and btypeEmail!= ''">
+                ,btypeEmail=#{btypeEmail}
+            </if>
+            <if test="btypeAddress!=null and btypeAddress!= ''">
+                ,btypeAddress=#{btypeAddress}
+            </if>
+            <if test="btypeLinkman!=null and btypeLinkman!= ''">
+               ,btypeLinkman=#{btypeLinkman}
+            </if>
+            <if test="btypeCell!=null and btypeCell!= ''">
+                ,btypeCell=#{btypeCell}
+            </if>
+            <if test="btypePhone!=null and btypePhone!= ''">
+                ,btypePhone=#{btypePhone}
+            </if>
+            <if test="btypeClassification!=null and btypeClassification!= ''">
+                ,btypeClassification=#{btypeClassification}
+            </if>
+            <if test="btypeClerk!=null and btypeClerk!= ''">
+                ,btypeClerk=#{btypeClerk}
+            </if>
+        </set>
+         where id =#{id}
+    </update>
+
+    <delete id="deleteBtypeId" parameterType="String">
+        delete  from  invoicing_btype where id=#{id}
+    </delete>
+
+    <insert id="addBtype" parameterType="InvoicingBtype" >
+        insert  into invoicing_btype values (#{id},#{btypeName},#{btypeEmail},#{btypeAddress},#{btypeLinkman},
+        #{btypeCell},#{btypePhone},#{btypeClassification},#{btypeClerk});
+    </insert>
+
+
+</mapper>
