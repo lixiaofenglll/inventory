@@ -1,4 +1,4 @@
-package com.kade2021Inventory;
+package com.kade2021inventory;
 
 import com.kade2021inventory.system.mapper.OmniMapper;
 import org.springframework.beans.factory.annotation.Autowired;

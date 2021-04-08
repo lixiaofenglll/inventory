@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.kade2021inventory.interceptor.mapper.RepertoryMapper">
+    <select id="selectAll" parameterType="map" resultType="repertory">
+        select  id,depotId,articleId,sum(amount),day from repertory group by depotId,articleId limit ${page},${limit}
+    </select>
+
+    <select id="selectBy" parameterType="map" resultType="repertory">
+        select * from repertory
+        <where>
+            <if test="articleId!=null and articleId!=''">
+                articleId like CONCAT("%",#{articleId},"%")
+            </if>
+        </where>
+        limit ${page},${limit}
+    </select>
+
+    <insert id="addrepertory" parameterType="repertory">
+        insert into repertory (depotId,articleId,amount,day) values(#{depotId},#{articleId},#{amount},#{day})
+    </insert>
+
+    <update id="updaterepertory" parameterType="repertory">
+        update repertory set depotId = #{depotId},articleId = #{articleId},amount =#{amount},day =#{day} where id = #{id}
+    </update>
+
+    <delete id="delrepertory" parameterType="int">
+        delete from repertory where id = #{id}
+    </delete>
+</mapper>
