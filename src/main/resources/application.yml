@@ -5,7 +5,7 @@ spring:
 #    cache: false
 #    prefix: classpath:/templates/
   datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
+    driver-class-name: com.mysql.jdbc.Driver
     url: jdbc:mysql://127.0.0.1:3306/invoicing?useSSL=true&charsetEncoding=utf-8
     username: root
     password: root
@@ -43,6 +43,9 @@ spring:
 
 mybatis:
   mapper-locations : classpath:mapper/*Mapper.xml
-  type-aliases-package: com.kade2021inventory.invoicing.pojo
+  type-aliases-package: com.kade2021inventory.*.pojo
+
+
+
 
 

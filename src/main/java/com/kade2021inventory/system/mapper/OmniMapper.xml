@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.kade2021inventory.system.mapper.OmniMapper">
+
+    <select id="selectAll" resultType="Map">
+        select * from ${_table}
+        <where>
+            <if test="fuzzy != null">
+            <foreach collection="fuzzy" index="key" item="value"
+            separator="and" open="and">
+            ${key} like '%${value}%'
+            </foreach>
+            </if>
+            <if test="data != null">
+                <foreach collection="data" index="key" item="value"
+                         separator="and" open="and">
+                    ${key} = #{value}
+                </foreach>
+            </if>
+        </where>
+        <if test="page != null and limit != null">
+            limit ${page},${limit}
+        </if>
+
+    </select>
+
+    <update id="modifyByPrimaryKey">
+        update ${_table}
+        <set>
+            <if test="data != null">
+                <foreach collection="data" separator=",">
+                    ${key}=#{value}
+                </foreach>
+            </if>
+        </set>
+        where   ${primary_key} = ${primary_key_value}
+    </update>
+
+    <delete id="deleteByPrimaryKey">
+        delete from ${_table} where ${primary_key} = ${primary_key_value}
+    </delete>
+
+    <insert id="insert">
+        insert into ${_table}
+        <if test="data != null">
+            <foreach collection="data" index="key" open="(" close=")" separator=",">
+                key
+            </foreach>
+        </if>
+        values
+        <if test="data != null">
+            <foreach collection="data" item="value" open="(" close=")" separator=",">
+                value
+            </foreach>
+        </if>
+    </insert>
+
+    <select id="countAll">
+        select count(*) from ${_table}
+        <where>
+            <if test="fuzzy != null">
+                <foreach collection="fuzzy" index="key" item="value"
+                         separator="and" open="and">
+                    ${key} like '%${value}%'
+                </foreach>
+            </if>
+            <if test="data != null">
+                <foreach collection="data" index="key" item="value"
+                         separator="and" open="and">
+                    ${key} = #{value}
+                </foreach>
+            </if>
+        </where>
+        <if test="page != null and limit != null">
+            limit ${page},${limit}
+        </if>
+
+    </select>
+</mapper>

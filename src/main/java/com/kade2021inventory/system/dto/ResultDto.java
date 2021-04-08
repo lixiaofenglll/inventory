@@ -1,4 +1,4 @@
-package com.kade2021inventory.invoicing.dto;
+package com.kade2021inventory.system.dto;
 
 /**
  * @Auther: wangxiaodan

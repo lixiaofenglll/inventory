@@ -1,0 +1,32 @@
+{
+  "title": "测试列表",
+  "subtitle": "测试列表的副标题",
+  "desc":"详细描述",
+  "countPerPage":10,
+  "size": 200,
+  "services": {
+    "get": "/selectAll",
+    "modify": "/modifyDemoData",
+    "del": "/delDemoData",
+    "add": "/addDemoData"
+  },
+  "security": {
+    "get": "security_for_get",
+    "modify": "security_for_modify",
+    "del": "security_for_del",
+    "add": "security_for_add"
+  },
+  "construct": [
+    {
+      "name": "id",
+      "type": "input",
+      "title": "编号",
+      "primary_key": true
+    },
+    {
+      "name": "name",
+      "type": "input",
+      "title": "名字"
+    }
+  ]
+}
